@@ -5,6 +5,7 @@ const fileUpload = require('express-fileupload')
 app.use(fileUpload())
 
 const newPostController = require('./controllers/newPost')
+const newWorldcupController = require('./controllers/newWorldcup')
 const homeController = require('./controllers/home')
 const storePostController = require('./controllers/storePost')
 const getPostController = require('./controllers/getPost')
@@ -18,6 +19,14 @@ const redirectIfAuthenticatedMiddleware =
     require('./middleware/redirectIfAuthenticatedMiddleware')
 const logoutController = require('./controllers/logout')
 const validateMiddleware = require("./middleware/validateMiddleware");
+
+//worldcup
+
+
+const getWorldcupPostController = require("./controllers/getWorldcup")
+const storeWorldcupController = require('./controllers/storeWorldcup')
+const worldcupHomeController = require("./controllers/WorldcupHome");
+
 
 mongoose.connect('mongodb+srv://animusn:sanspapyrus@cluster0.lrcfl.mongodb.net/test', {
     useUnifiedTopology: true,
@@ -53,6 +62,8 @@ app.use("*", (req, res, next) => {
     next()
 });
 
+
+
 app.use('/posts/store', validateMiddleware)
 
 app.get('/posts/new', authMiddleware, newPostController)
@@ -73,7 +84,20 @@ app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserControll
 
 app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController)
 
+//worldcup
+
+app.get('/worldcup',worldcupHomeController)
+
+app.get('/worldcup/posts/new', authMiddleware, newWorldcupController)
+
+app.post('/worldcup/posts/store', authMiddleware, storeWorldcupController)
+
+
+app.get('/worldcup/post/:id', getWorldcupPostController)
+
 app.use((req, res) => res.render('notfound'))
+
+
 
 
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/worldcup.css">
+    <title>이상형 월드컵</title>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+
+            <div><h2><%= worldcup.title %></h2></div.>
+            <div class="classification"><h3 class="curTitle">n강 k/n</h3><hr></div>
+            <div class="contentContainer">
+                <div class="contents" id="img1">
+                    <figure>
+                        <figcaption class="content1">contents</figcaption>
+                    </figure>
+                </div>
+                <div class="vs"> VS </div>
+                <div class="contents" id="img2">
+                    <figure>
+                        <figcaption class="content2">contents</figcaption>
+                    </figure>
+                </div>
+                <button input="button" class="select1" value="opt1">선택</button>
+                <div></div>
+                <button input="button" class="select2" value="opt2">선택</button>
+            </div>
+        </div>
+        <div class = "item">
+            <button type="button" class="option" id="back" onclick="location.href='/worldcup' ">뒤로가기</button>
+            
+            <button type="button" class="option" id="restart">재시작</button>
+        </div>
+    </div>
+    <div>
+        <table class="candidateTable">
+            
+            <% for (var i = 0; i < worldcup.candidateName.length; i++) { %>
+                <tr class="candidateList">
+                    <td><%= worldcup.candidateName[i] %></td>
+    
+                    <td><%= worldcup.image[i] %></td>
+                </tr>
+            
+                <% } %>    
+        </table>
+    </div>
+    
+    <script src="/js/worldcup.js"></script>
+</body>
