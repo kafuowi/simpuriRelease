@@ -68,7 +68,7 @@ app.use('/posts/store', validateMiddleware)
 
 app.get('/posts/new', authMiddleware, newPostController)
 
-app.get('/', homeController)
+app.get('/', worldcupHomeController)
 
 app.get('/post/:id', getPostController)
 
