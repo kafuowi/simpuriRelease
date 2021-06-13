@@ -22,23 +22,26 @@
 									<li>
 										<a class="menuLink" href="/">Home</a>
 									  </li>
-									 
+									  
+									  <li>
+										<a class="menuLink" href="https://whispering-temple-69948.herokuapp.com/">심리테스트</a>
+									  </li>
 									  <% if(loggedIn) { %>         
 									  <li>
-										<a class="menuLink" href="/worldcup/posts/new">New Worldcup</a>
+										<a class="menuLink" href="/worldcup/posts/new">새로운 월드컵</a>
 									  </li>
 									  <li>
-										<a class="menuLink" href="/auth/logout">Log out</a>
+										<a class="menuLink" href="/auth/logout">로그아웃</a>
 									  </li>  
 									  <%}%>
 							
 									  <% if(!loggedIn) { %>
 									  <li>
-										<a class="menuLink" href="/auth/login">Login</a>
+										<a class="menuLink" href="/auth/login">로그인</a>
 									  </li>
 									  
 									  <li>
-										<a class="menuLink" href="/auth/register">New User</a>
+										<a class="menuLink" href="/auth/register">회원가입</a>
 									  </li>
 									  <%}%>
 							
